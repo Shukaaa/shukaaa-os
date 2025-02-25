@@ -1,0 +1,39 @@
+@use "../../../../variables" as vars;
+
+main {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+  z-index: 1;
+}
+
+app-taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  z-index: 100;
+}
+
+app-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: calc(100% - #{vars.$taskbar-height});
+  z-index: 10;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

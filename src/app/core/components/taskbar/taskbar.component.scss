@@ -1,0 +1,61 @@
+@use "../../../../variables" as vars;
+
+main {
+  height: vars.$taskbar-height;
+  width: 100%;
+  background: vars.$milky-white;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-top: 2px solid vars.$red-border-color;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.os-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.apps {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  &__app {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;
+    transition: color 0.2s;
+    border-left: 3px solid vars.$red-border-color;
+    padding: 0 1em;
+
+    &:hover {
+      color: vars.$color-primary;
+    }
+
+    &--active {
+      color: vars.$color-primary;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<main [class]="app ? '' : 'hidden'">
+    <div class="app-toolbar">
+      <div class="app-toolbar__title">
+        <span class="material-symbols-outlined">{{app?.icon}}</span><span>{{ app?.name }}</span>
+      </div>
+      <div class="app-toolbar__actions">
+        <button (click)="minimize()">
+          <span class="material-symbols-outlined">remove</span>
+        </button>
+        <button (click)="close()">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+  <div class="app">
+    <ng-container #appContainer></ng-container>
+  </div>
+</main>

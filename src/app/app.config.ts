@@ -1,8 +1,19 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
+import {ConfigStore} from './core/store/config.store';
+import {popperVariation, provideTippyConfig, provideTippyLoader, tooltipVariation} from '@ngneat/helipopper/config';
+import tippy from 'tippy.js';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideTippyLoader(() => tippy),
+    provideTippyConfig({
+      defaultVariation: 'tooltip',
+      variations: {
+        tooltip: tooltipVariation,
+        popper: popperVariation,
+      },
+    }),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    ConfigStore
+  ]
 };
