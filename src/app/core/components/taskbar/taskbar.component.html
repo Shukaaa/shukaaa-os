@@ -14,12 +14,12 @@
         <span>Opened Tabs:</span>
         @if (currentlyOpenApp != null) {
           <div class="apps__app apps__app--active" (click)="closeCurrentApp()" tp="Close">
-            <span class="material-symbols-outlined">{{currentlyOpenApp.icon}}</span>
+            <app-icon [app]="currentlyOpenApp" disableText size="small"></app-icon>
             <span>{{currentlyOpenApp.name}}</span>
           </div>
         }
         <div *ngFor="let app of apps" class="apps__app" (click)="openApp(app)" tp="Open">
-          <span class="material-symbols-outlined">{{app.icon}}</span>
+          <app-icon [app]="app" disableText size="small"></app-icon>
           <span>{{app.name}}</span>
         </div>
       } @else {

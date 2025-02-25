@@ -5,10 +5,11 @@ import {SETTINGS_APP} from '../../apps';
 import {NgForOf} from '@angular/common';
 import {App} from '../../interfaces/app.interface';
 import {ConfigStore} from '../../store/config.store';
+import {IconComponent} from '../icon/icon.component';
 
 @Component({
   selector: 'app-taskbar',
-  imports: [TippyDirective, NgForOf],
+  imports: [TippyDirective, NgForOf, IconComponent],
   templateUrl: './taskbar.component.html',
   styleUrl: './taskbar.component.scss'
 })

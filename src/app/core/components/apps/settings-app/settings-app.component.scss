@@ -11,6 +11,10 @@ main {
 
 .headline {
   font-size: 1.5rem;
+
+  &:not(:first-child) {
+    margin-top: 1em;
+  }
 }
 
 .subline {
@@ -48,8 +52,4 @@ main {
   align-items: center;
   justify-content: center;
   gap: 1em;
-
-  &__button {
-
-  }
 }

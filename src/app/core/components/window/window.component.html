@@ -1,7 +1,7 @@
-<main [class]="app ? '' : 'hidden'">
+<section [class]="app ? '' : 'hidden'" class="app-section">
     <div class="app-toolbar">
       <div class="app-toolbar__title">
-        <span class="material-symbols-outlined">{{app?.icon}}</span><span>{{ app?.name }}</span>
+        <app-icon [app]="app" disableText size="small"></app-icon><span>{{ app?.name }}</span>
       </div>
       <div class="app-toolbar__actions">
         <button (click)="minimize()">
@@ -15,4 +15,15 @@
   <div class="app">
     <ng-container #appContainer></ng-container>
   </div>
-</main>
+</section>
+@if (app == null) {
+  <section class="app-icon-organizer" id="app-icon-organizer">
+    <div class="app-icon-organizer__app"
+         *ngFor="let appIcon of apps"
+         (mousedown)="onMouseDown($event, appIcon)"
+         [id]="appIcon.key"
+         [style]="getStyleForAppIcon(appIcon)">
+      <app-icon [app]="appIcon" size="large"></app-icon>
+    </div>
+  </section>
+}

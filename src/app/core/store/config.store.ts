@@ -7,6 +7,12 @@ export class ConfigStore extends LocalStorageStore<Config>{
   storeKey = "config";
   defaultValue: Config = {
     background: "landscape.jpg",
-    temperatureUnit: "C"
+    temperatureUnit: "C",
+    appPositions: {
+      settings: {
+        x: 0,
+        y: 0
+      }
+    }
   }
 }

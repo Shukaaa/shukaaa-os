@@ -33,4 +33,8 @@ export class SettingsAppComponent {
   changeDegreesUnit(unit: 'C' | 'F') {
     this.configStore.set("temperatureUnit", unit)
   }
+
+  clearConfigurations() {
+    this.configStore.clear()
+  }
 }
