@@ -1,7 +1,11 @@
 <main>
-  <div>
+  <div class="left-toolbar">
     <div class="os-logo" (click)="openSettings()" tp="Open OS settings" tpPlacement="right">
       <img src="img/logo.png" alt="logo"/>
+    </div>
+    <div class="time">
+      <span>{{getLocalTimeString()}} | {{degrees}}</span>
+      <span>{{getLocalDateString()}}</span>
     </div>
   </div>
   <div>

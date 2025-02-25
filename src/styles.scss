@@ -23,3 +23,25 @@ h1, h2, h3, h4, h5, h6 {
   background-color: vars.$color-primary;
   color: vars.$color-text;
 }
+
+button {
+  cursor: pointer;
+  padding: 0.5em 1.5em;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+  border: 2px solid vars.$color-primary;
+
+  &:hover {
+    background-color: vars.$color-primary;
+    color: #ffffff;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.active {
+    background-color: vars.$color-primary;
+    color: #ffffff;
+  }
+}

@@ -59,3 +59,15 @@ img {
     }
   }
 }
+
+.left-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.time {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+}

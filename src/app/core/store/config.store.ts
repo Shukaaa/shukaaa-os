@@ -6,6 +6,7 @@ import {Injectable} from '@angular/core';
 export class ConfigStore extends LocalStorageStore<Config>{
   storeKey = "config";
   defaultValue: Config = {
-    background: "landscape.jpg"
+    background: "landscape.jpg",
+    temperatureUnit: "C"
   }
 }

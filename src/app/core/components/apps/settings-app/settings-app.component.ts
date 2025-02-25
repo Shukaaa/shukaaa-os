@@ -25,4 +25,12 @@ export class SettingsAppComponent {
   changeBackground(background: string) {
     this.configStore.set("background", background)
   }
+
+  get degreeUnit() {
+    return this.configStore.get("temperatureUnit")
+  }
+
+  changeDegreesUnit(unit: 'C' | 'F') {
+    this.configStore.set("temperatureUnit", unit)
+  }
 }

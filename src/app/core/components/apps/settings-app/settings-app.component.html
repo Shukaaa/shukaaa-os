@@ -13,5 +13,19 @@
         <img [src]="'img/backgrounds/'+bg" alt="background"/>
       </div>
     </div>
+    <span class="headline">Units</span>
+    <span class="subline">Temperature</span>
+    <div class="settings__units">
+      <button
+        class="settings__units__button"
+        [class.active]="degreeUnit === 'C'"
+        (click)="changeDegreesUnit('C')"
+      >Celsius</button>
+      <button
+        class="settings__units__button"
+        [class.active]="degreeUnit === 'F'"
+        (click)="changeDegreesUnit('F')"
+      >Fahrenheit</button>
+    </div>
   </div>
 </main>
