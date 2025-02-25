@@ -1,3 +1,17 @@
 <main>
-  hi
+  <div>
+    <span class="headline">Appearance</span>
+    <span class="subline">Background</span>
+    <div class="settings__background">
+      <div
+        class="settings__background__item"
+        *ngFor="let bg of backgrounds"
+        (click)="changeBackground(bg)"
+        [tp]="bg.replace('.jpg', '') | titlecase"
+        tpPlacement="bottom"
+      >
+        <img [src]="'img/backgrounds/'+bg" alt="background"/>
+      </div>
+    </div>
+  </div>
 </main>

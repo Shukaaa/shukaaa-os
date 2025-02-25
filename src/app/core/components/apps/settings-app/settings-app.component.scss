@@ -1,0 +1,44 @@
+main {
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    height: 100%;
+  }
+}
+
+.headline {
+  font-size: 1.5rem;
+}
+
+.subline {
+  font-size: 1rem;
+  color: #666;
+}
+
+.settings__background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+
+  &__item {
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    & > img {
+      width: 250px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+  }
+}
