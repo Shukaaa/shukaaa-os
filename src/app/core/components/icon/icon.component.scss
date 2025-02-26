@@ -6,10 +6,14 @@ main {
   align-items: center;
   justify-content: center;
 
-  width: fit-content;
+  width: 90px;
   height: fit-content;
 
   user-select: none;
+
+  &.no-text {
+    width: fit-content;
+  }
 }
 
 img {
@@ -32,9 +36,15 @@ img {
   }
 }
 
-span {
+.text {
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 1px;
   text-align: center;
+}
+
+.material-symbols-outlined {
+  font-size: 1em;
+  vertical-align: middle;
+  padding-right: 0.2em;
 }

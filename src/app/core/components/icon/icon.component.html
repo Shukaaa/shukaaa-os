@@ -1,4 +1,9 @@
-<main>
+<main class="{{disableText ? 'no-text' : ''}}">
   <img src="img/app-icons/{{app?.icon}}" alt="icon" [class]="size" draggable="false"/>
-  <span *ngIf="!disableText">{{app?.name}}</span>
+  <span *ngIf="!disableText" class="text">
+    @if (app?.type === 'link') {
+      <span class="material-symbols-outlined">open_in_new</span>
+    }
+    <span>{{app?.name}}</span>
+  </span>
 </main>

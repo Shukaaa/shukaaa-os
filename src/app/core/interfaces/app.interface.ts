@@ -4,5 +4,7 @@ export interface App {
   key: string;
   name: string;
   icon: string;
-  component: Type<any>
+  type: 'component' | 'link';
+  component?: Type<any>;
+  link?: string;
 }

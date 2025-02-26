@@ -1,4 +1,4 @@
-<section [class]="app ? '' : 'hidden'" class="app-section">
+<section [class]="app && app.type === 'component' ? '' : 'hidden'" class="app-section">
     <div class="app-toolbar">
       <div class="app-toolbar__title">
         <app-icon [app]="app" disableText size="small"></app-icon><span>{{ app?.name }}</span>

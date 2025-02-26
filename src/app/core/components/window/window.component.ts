@@ -27,8 +27,16 @@ export class WindowComponent implements OnChanges {
 
   private loadApp() {
     if (!this.app) return;
-    this.container.clear();
-    this.container.createComponent(this.app.component);
+
+    if (this.app.type === 'component') {
+      this.container.clear();
+      this.container.createComponent(this.app.component!!);
+    }
+
+    if (this.app.type === 'link') {
+      window.open(this.app.link, '_blank');
+      this.close();
+    }
   }
 
   close() {
@@ -79,7 +87,7 @@ export class WindowComponent implements OnChanges {
 
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
-    }, 1000);
+    }, 500);
 
     const onMouseUp = () => {
       clearTimeout(dragTimeout); // Delayed dragging start; clear timeout if mouse is released before dragging starts

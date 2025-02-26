@@ -12,6 +12,10 @@ export class ConfigStore extends LocalStorageStore<Config>{
       settings: {
         x: 0,
         y: 0
+      },
+      github: {
+        x: 0,
+        y: 100
       }
     }
   }

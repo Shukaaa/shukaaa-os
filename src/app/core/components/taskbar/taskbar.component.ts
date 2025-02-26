@@ -16,7 +16,7 @@ import {IconComponent} from '../icon/icon.component';
 export class TaskbarComponent implements OnInit {
   time = ""
   date = ""
-  temperatureInCelsius = 0
+  temperatureInCelsius = -100
 
   private readonly configStore = inject(ConfigStore);
 
@@ -67,9 +67,7 @@ export class TaskbarComponent implements OnInit {
   }
 
   setWeatherStats() {
-    console.log('Getting weather stats');
     window.navigator.geolocation.getCurrentPosition((position) => {
-      console.log('Got location', position);
       const lat = position.coords.latitude;
       const long = position.coords.longitude;
       fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&current=temperature_2m`)
@@ -85,7 +83,15 @@ export class TaskbarComponent implements OnInit {
 
   get degrees() {
     const temperatureType = this.configStore.get('temperatureUnit')
-    return temperatureType === 'C' ? `${this.temperatureInCelsius}°C` : `${this.temperatureInFahrenheit}°F`;
+    let temperatureText
+
+    if (this.temperatureInCelsius === -100) {
+      temperatureText = "--"
+    } else {
+      temperatureText = temperatureType === 'C' ? this.temperatureInCelsius : this.temperatureInFahrenheit
+    }
+
+    return `${temperatureText}°${temperatureType}`
   }
 
   get temperatureInFahrenheit() {
