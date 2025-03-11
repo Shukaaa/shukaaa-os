@@ -1,0 +1,5 @@
+:80
+
+root * /app/dist/shukaaa-os/browser
+encode gzip
+file_server
