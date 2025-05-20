@@ -16,6 +16,10 @@ export class ConfigStore extends LocalStorageStore<Config>{
       github: {
         x: 0,
         y: 100
+      },
+      mymusic: {
+        x: 0,
+        y: 200
       }
     }
   }
