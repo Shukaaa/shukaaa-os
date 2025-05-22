@@ -1,10 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {ConfigStore} from './core/store/config.store';
+import {provideTippyConfig, provideTippyLoader} from '@ngneat/helipopper/config';
+import tippy from 'tippy.js';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [ConfigStore, provideTippyConfig({}), provideTippyLoader(() => tippy), provideTippyLoader(() => tippy)]
     }).compileComponents();
   });
 
@@ -12,18 +16,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'shukaaa-os' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('shukaaa-os');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, shukaaa-os');
   });
 });

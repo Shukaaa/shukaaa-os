@@ -13,9 +13,17 @@ export abstract class LocalStorageStore<T> {
   }
 
   set(key: keyof T, value: T[keyof T]) {
-    const json = JSON.parse(localStorage.getItem(this.appKey + this.storeKey)!!) as T;
-    json[key] = value;
-    localStorage.setItem(this.appKey + this.storeKey, JSON.stringify(json));
+    let json = localStorage.getItem(this.appKey + this.storeKey);
+
+    if (!json) {
+      json = JSON.stringify(this.defaultValue);
+      localStorage.setItem(this.appKey + this.storeKey, json);
+    }
+
+    const parsed = JSON.parse(json) as T;
+    parsed[key] = value;
+
+    localStorage.setItem(this.appKey + this.storeKey, JSON.stringify(parsed));
   }
 
   clear() {

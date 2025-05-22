@@ -29,8 +29,12 @@ export class WindowComponent implements OnChanges {
     if (!this.app) return;
 
     if (this.app.type === 'component') {
-      this.container.clear();
-      this.container.createComponent(this.app.component!!);
+      if (this.container) {
+        this.container.clear();
+        if (this.app.component) {
+          this.container.createComponent(this.app.component);
+        }
+      }
     }
 
     if (this.app.type === 'link') {
